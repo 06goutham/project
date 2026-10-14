@@ -1,0 +1,35 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: BOOKING-SERVICE
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/booking_db?createDatabaseIfNotExist=true&serverTimezone=Asia/Kolkata
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+    register-with-eureka: true
+    fetch-registry: true
+
+security:
+  jwt:
+    secret: "KLU_EVENT_BOOKING_SYSTEM_SECRET_KEY_2026_ABCDEF_123456789"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
